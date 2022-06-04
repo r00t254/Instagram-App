@@ -1,0 +1,63 @@
+{%extends 'base.html'%}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+{% if image %}
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="card" style="margin-bottom: 5rem;">
+      <div class="card-header d-flex">
+        <div class="prof-image">
+          <a href="/profile/{{image.profile.id}}">
+            <img class="rounded-circle img-thumbnail" style="width: 3em;height: 3em;"
+              src="{{image.profile.profile_image.url}}" alt="user">
+          </a>
+        </div>
+        <div class="profile" style="margin-left: 1em;">
+          <a href="/profile/{{image.profile.id}}" class="profile_tag" style="color: black;"><b>{{image.profile}}</b></a>
+          <p><strong><i>#{{image.name}}</i></strong></p>
+        </div>
+      </div>
+      <img src="{{image.image.url}}" class="card-img-top" alt="upload" style="height: 40rem;object-fit: cover;">
+      <div class="card-body">
+        <form action="{% url 'LikePost' image_id=image.id %}">
+          {% csrf_token %}
+          <button type="submit" name="image_id" value={{image.id}}
+            style="border: 0px; background-color: transparent; margin-bottom: 1rem;"><i class="far fa-heart"></i></button>
+        </form>
+        <div class="liked-count">{{image.likes.count}} like(s)</div>
+        <div class="post">
+          <strong><b>{{image.profile}}</b></strong>
+          <span class="post-link">{{image.caption}}</span>
+          <div class="text-muted" style="margin-top: 1%;">Comment(s)</div>
+          {% for comment in image_comments %}
+          {% if comment.image.id == image.id %}
+          <div>
+            <em style="font-size: 1.2rem;"><b>{{comment.user}}</b></em>
+            <span class="post-link"><em style="font-size: 1.2rem;">{{comment.comment}}</em></span>
+          </div>
+          {% endif %}
+          {% endfor %}
+          <div class="text-muted">{{image.pub_date | timesince }} ago</div>
+        </div>
+      </div>
+      <div class="card-footer" style="padding: 0;">
+        <form role="add_comment" , action="{% url 'AddComment' image_id=image.id %}">
+          {% csrf_token%}
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Add a comment..." name="comments"
+              style="font-size: 1.2rem; border: 0;">
+            <div class="input-group-btn">
+              <button class="btn" type="submit" style="font-size: 1.2rem;"> Post</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+
+</div>
+{% endif %}
+{% endblock %}
