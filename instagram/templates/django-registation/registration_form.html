@@ -1,0 +1,77 @@
+{%extends "registration/base.html"%} {% load bootstrap4 %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="card shadow p-3 mb-5 rounded card" id="reg" style="width: fit-content; margin-left: auto;margin-right: auto;background-color: transparent;">
+        <div class="cardbody">
+          {% if form.errors %}
+          <p class="danger"> Checkout for possible accounts detail here </p>
+          {% endif %}
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="text-center">Sign Up</h3>
+            </div>
+            <div class="panel-body">
+              <form action="/accounts/register/" method="post">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <div class="form-group">
+                  <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
+                </div>
+                <input type="hidden" name="next" value="{%url 'create_profile' %}">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
+<footer>
+  <div class="container-fluid text-center" style="color: #052180; margin-bottom: 0% !important;">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8 nav">
+        <ul class="list-unstyled">
+          <li>
+            About
+          </li>
+          <li>
+            Blog
+          </li>
+          <li>
+            Jobs
+          </li>
+          <li>
+            Help
+          </li>
+          <li>
+            Api
+          </li>
+          <li>
+            Privacy
+          </li>
+          <li>
+            Top Accounts
+          </li>
+          <li>
+            Hashtags
+          </li>
+          <li>
+            Locations
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+
+  <div class="footer-copyright text-center py-3 ma" style="color: #04235d; margin-bottom: 0% !important; ">© 2022
+    Copyright: Instagram-app from Facebook<br>
+  </div>
+</footer>
+{% endblock %}
