@@ -1,0 +1,118 @@
+{%extends 'base.html'%}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+<div class="row" style="padding-top: 2rem; padding-bottom: 2rem;">
+  <div class="col-xs-12 col-md-3"></div>
+  <div class="col-xs-12 col-md-6">
+    {% if not_searched %}
+    <p class="text-center" style="font-size: 2rem;">{{not_searched}}</p>
+    {% else %}
+    {% if profile %}
+    <div id="profile">
+      <div class="d-flex">
+        <div class="pro">
+          <img class="img-thumbnail"
+            style="width:10em; height:10em;object-fit: cover; margin-right: 3rem; border-radius: 50%; "
+            src="{{profile.profile_image.url}}" alt="">
+        </div>
+        <div class="profile" style="padding-top: 3rem;">
+          <div class="row">
+            <div class="col-md-6"><h3 style="font-weight: 700;">{{profile.user.username}}</h3></div>
+            <div class="col-md-6">
+              {%if profile.user.username != request.user.username%}
+              
+              {% if follow_form %}
+              <form action="/profile/{{profile.id}}" method="post">
+                {%csrf_token%}
+                {% bootstrap_form follow_form%}
+                <input type="submit" class=" btn btn-primary" name="follow" value="Follow"
+                  style="background-color: #010e17 !important; padding: 3px 5px;; color: rgb(160, 6, 243);">
+              </form>
+              {% endif %}
+              {% if unfollow_form %}
+              <form action="/profile/{{profile.id}}" method="post">
+                {%csrf_token%}
+                {% bootstrap_form unfollow_form%}
+                <input type="submit" class=" btn btn-info" name="unfollow" value="Unfollow"
+                  style="background-color: #010e18 !important; padding: 3px 5px; color: rgb(120, 7, 240);">
+              </form>
+              {% endif %}
+              {% else%}
+              {% endif %}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <p><strong style="font-size: 1.4rem;">{{post}}</strong>posts</p>
+            </div>
+            <div class="col-md-4">
+              <p><strong style="font-size: 1.4rem;">{{profile.followers}}</strong>followers</p>
+            </div>
+            <div class="col-md-5">
+              <p><strong style="font-size: 1.4rem;">{{profile.following}}</strong>following</p>
+            </div>
+          </div>
+          <em style="font-size: 1.2rem;"><em class="text-muted">Bio: <br></em>{{profile.bio}}</em>
+        </div>
+      </div>
+      <hr>
+      <div class="row" id="user-posts">
+        {% if images %}
+        {% for image in images %}
+        <div class="col-md-4 col-sm-4" style="object-fit: cover;">
+          <img src="{{image.image.url}}" alt="" style="width: 20rem; height: 20rem; object-fit: cover;">
+        </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+    {% else %}
+    <h5 style="font-size: 2rem;">No user with username "{{search}}"</h5>
+    {% endif %}
+    {% endif %}
+  </div>
+  <div class="col-xs-12 col-md-3"></div>
+</div>
+<footer class="page-footer" style="color: #010150; margin-bottom: 0em;">
+  <div class="container-fluid text-center">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <ul class="list-unstyled">
+          <li>
+            About
+          </li>
+          <li>
+            Blog
+          </li>
+          <li>
+            Jobs
+          </li>
+          <li>
+            Help
+          </li>
+          <li>
+            Api
+          </li>
+          <li>
+            Privacy
+          </li>
+          <li>
+            Top Accounts
+          </li>
+          <li>
+            Hashtags
+          </li>
+          <li>
+            Locations
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+  <div class="footer-copyright text-center py-3">© 2022 Copyright: Instagram-app from Facebook
+  </div>
+</footer>
+{% endblock %}
