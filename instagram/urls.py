@@ -5,7 +5,8 @@ from . import views
 from django.conf.urls.static import static
 
 urlpatterns = [
-  path('',views.index,name='home'),
+  path('', views.index,name='home'),
+  path('login/', views.login, name='login'),
   path('upload/image/',views.upload_post,name='NewPost'),
   path('update/',views.update_profile,name='UpdateProfile'),
   re_path('like/(?P<image_id>\d+)',views.like_post,name='LikePost'),

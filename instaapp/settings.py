@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 import cloudinary
-from decouple import config, Csv
+from decouple import config
 import dj_database_url
 
 
@@ -44,6 +44,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 # Application definition
 
 INSTALLED_APPS = [
+    'instagram.apps.InstagramConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,9 +55,9 @@ INSTALLED_APPS = [
     
 ]
 cloudinary.config(
-    cloud_name="mary",
-    api_key="727223526185189",
-    api_secret='django-insecure-q6vd*@^i+2#r&trrl!)fr76gc(%5o3zs0gu8p3mffzzl)6sti&'
+    cloud_name="moringasch",
+    api_key="652372517599923",
+    api_secret="vpCLOd_AERtkc-dEBeGAYFwa1eQ" 
 )
 
 
@@ -75,7 +76,9 @@ ROOT_URLCONF = 'instaapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'templates'
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -149,3 +152,12 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+# import sys, threading
+# sys.hsetrecursionlimit(10**7) # max depth of recursion
+# threading.stack_size(2**27)  # new thread will get stack of such size
+
+import sys
+sys.setrecursionlimit(10000)

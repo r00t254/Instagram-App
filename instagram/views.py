@@ -3,41 +3,44 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponseRedirect,Http404
 from .models import Profile,Follow,Image,Comments
 from django.contrib.auth.models import User
-from .forms import UnfollowForm,FollowForm,CreateProfileForm,UpdateProfile,CreatePost
+from .form import UnfollowForm,FollowForm,CreateProfileForm,UpdateProfile,CreatePost
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from .email import send_welcome_email
 
 # Create your views here.
-@login_required
+# @login_required
 def index(request):
-  current_user=request.user
-  try:
-    profile= Profile.objects.get(user=current_user)
-  except Profile.DoesNotExist:
-    raise Http404()
+  # current_user=request.user
+  
+  # try:
+  #   profile= Profile.objects.get(user=current_user)
+  #   print(current_user)
+  # except Profile.DoesNotExist:
+  #   raise Http404()
 
-  index_timeline=[]
-  images = Image.objects.filter(profile=profile)
-  for image in images:
-    index_timeline.append(image.id)
+  # index_timeline=[]
+  # images = Image.objects.filter(profile=profile)
+  # for image in images:
+  #   index_timeline.append(image.id)
 
-  followers_posts=Follow.objects.filter(follower=profile)
-  for follower in followers_posts:
-    followed_profiles=follower.followed
-    followed_images=Image.profile_images(followed_profiles)
-    for images in followed_images:
-      index_timeline.append(images.id)
-  timeline_images=Image.objects.filter(pk__in=index_timeline).order_by('-pub_date')
+  # followers_posts=Follow.objects.filter(follower=profile)
+  # for follower in followers_posts:
+  #   followed_profiles=follower.followed
+  #   followed_images=Image.profile_images(followed_profiles)
+  #   for images in followed_images:
+  #     index_timeline.append(images.id)
+  # timeline_images=Image.objects.filter(pk__in=index_timeline).order_by('-pub_date')
 
-  all_profiles=Profile.objects.all()
-  comments=Comments.objects.all()[:5]
-  count=comments.count()
-  follow_suggestions=Profile.objects.all()[:6]
-  title = "Instagram-App"
+  # all_profiles=Profile.objects.all()
+  # comments=Comments.objects.all()[:5]
+  # count=comments.count()
+  # follow_suggestions=Profile.objects.all()[:6]
+  # title = "Instagram-App"
 
-  return render(request,'index.html',{"all_profiles":all_profiles,"title":title,"profile":profile,"timeline_images":timeline_images,"follow_suggestions":follow_suggestions,"image_comments":comments})
-
+  return render(request, 'instagram/index.html')
+  # return render(request,'instagram/index.html',{"all_profiles":all_profiles,"title":title,"profile":profile,"timeline_images":timeline_images,"follow_suggestions":follow_suggestions,"image_comments":comments})
+  
 @login_required
 def welcome_mail(request):
   user=request.user
@@ -220,7 +223,7 @@ def create_profile(request):
     return HttpResponseRedirect('/')
   else:
     form = CreateProfileForm()
-  return render(request,'create-profile.html',{"form":form})
+  return render(request,'create_profile.html',{"form":form})
 
 @login_required
 def like_post(request,image_id):
@@ -279,3 +282,9 @@ def single_post(request,image_id):
     return render(request,'single-post.html',{"image":image})
   except Image.DoesNotExist:
     raise Http404()
+  
+  
+def login(request):
+    if request.method == 'POST':
+      print(request.POST)
+    return render(request, 'instagram/login.html')
