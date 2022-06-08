@@ -31,4 +31,5 @@ There are no known bugs
 
 .Heroku
 # Contact Details
+Feel free to leave your comments and feedback here 
 
