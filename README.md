@@ -5,6 +5,9 @@ This is a clone instagram website that enable users to upload their their pictur
 # Screen Short
 
 # Installations
+
+
+# User Story
 User can sign into the application
 
 .User can upload his/her picture in the application
@@ -15,4 +18,4 @@ User can sign into the application
 
 .User can like and leave a comment on it
 
-# Behaviour Driven Development
+
