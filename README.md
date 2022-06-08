@@ -4,13 +4,12 @@ This is a clone instagram website that enable users to upload their  pictures ,l
 
 # Screen Short
 # Account/registration
-![Screenshot from 2022-06-08 10-31-09](https://user-images.githubusercontent.com/100118426/172559964-79080917-6f9f-41d7-8220-f114d4d24266.png)
+
 
 
 # upload images
-![Screenshot from 2022-06-08 10-32-47](https://user-images.githubusercontent.com/100118426/172559251-f32aaa4d-2a64-4ca1-b96f-e757dc66d905.png)
 
-
+![Screenshot from 2022-06-08 10-41-34](https://user-images.githubusercontent.com/100118426/172560726-07821533-9699-4edc-aa79-6edc912db97b.png)
 
 # Installations
 .Django
