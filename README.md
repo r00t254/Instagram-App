@@ -5,7 +5,7 @@ This is a clone instagram website that enable users to upload their  pictures ,l
 # Screen Short
 # Account/registration
 
-
+![Screenshot from 2022-06-08 10-42-05](https://user-images.githubusercontent.com/100118426/172560995-02af6135-735d-4492-9922-f1d6efeb0a20.png)
 
 # upload images
 
