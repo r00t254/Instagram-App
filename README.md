@@ -23,4 +23,11 @@ User can sign into the application
 # Known Bugs
 There are no known bugs
 # Technology Used
+.Python3.8
+
+.Bootstrap
+
+.Django
+
+.Heroku
 
