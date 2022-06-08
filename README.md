@@ -1,6 +1,6 @@
 # Instagram-App 
 # Description 
-This is a clone instagram website that enable users to upload their  pictures and also like and comment on other users photos.It also allow users to follow and unfollow other instagram users and alongside view their posts.
+This is a clone instagram website that enable users to upload their  pictures ,like and comment on other users photos.It also allow users to follow and unfollow other instagram users and alongside view their posts.
 
 # Screen Short
 
