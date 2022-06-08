@@ -31,5 +31,5 @@ There are no known bugs
 
 .Heroku
 # Contact Details
-Feel free to leave your comments and feedback here 
+Feel free to leave your comments and feedback here root254.mary@gmail.com
 
