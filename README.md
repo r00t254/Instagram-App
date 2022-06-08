@@ -3,6 +3,10 @@
 This is a clone instagram website that enable users to upload their  pictures ,like and comment on other users photos.It also allow users to follow and unfollow other instagram users and alongside view their posts.
 
 # Screen Short
+# Account/registration
+![Screenshot from 2022-06-08 10-31-09](https://user-images.githubusercontent.com/100118426/172559964-79080917-6f9f-41d7-8220-f114d4d24266.png)
+
+
 # upload images
 ![Screenshot from 2022-06-08 10-32-47](https://user-images.githubusercontent.com/100118426/172559251-f32aaa4d-2a64-4ca1-b96f-e757dc66d905.png)
 
