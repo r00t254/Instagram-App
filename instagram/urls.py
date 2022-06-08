@@ -7,6 +7,8 @@ from django.conf.urls.static import static
 urlpatterns = [
   path('', views.index,name='home'),
   path('login/', views.login, name='login'),
+   path('accounts/registration/', views.registration, name='registration'),
+  path('accounts/login/', views.login, name='login'),
   path('upload/image/',views.upload_post,name='NewPost'),
   path('update/',views.update_profile,name='UpdateProfile'),
   re_path('like/(?P<image_id>\d+)',views.like_post,name='LikePost'),
@@ -16,6 +18,7 @@ urlpatterns = [
   path('search/',views.search,name='Search'),
   path('email/',views.welcome_mail,name='email'),
   re_path('single/(?P<image_id>\d+)',views.single_post,name='single-post')
+  
 ]
 
 if settings.DEBUG:

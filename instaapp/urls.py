@@ -23,11 +23,11 @@ from django.contrib.auth.views import LoginView,LogoutView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('instagram.urls')),
-    # path('accounts/register/', RegistrationView.as_view(success_url='/email'),name='django_registration_register'),
-    # path('logout/', auth_views.LogoutView.as_view(next_page='/')),
-    # path('accounts/', include('django.contrib.auth.urls')),
-    # path('login/', auth_views.LoginView.as_view(template_name='instagram/registration/login.html'), name='login'),
-    # path('accounts/', include('django_registration.backends.one_step.urls')), 
+    path('accounts/register/', RegistrationView.as_view(success_url='/email'),name='django_registration_register'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='/')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('login/', auth_views.LoginView.as_view(template_name='instagram/registration/login.html'), name='login'),
+    path('accounts/', include('django_registration.backends.one_step.urls')), 
 ]
 
     

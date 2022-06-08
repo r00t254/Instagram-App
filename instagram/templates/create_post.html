@@ -31,10 +31,12 @@
         <div class="cardbody" style="background-color: transparent;">
           <div class="form-data form-data-prof">
             <form action="{%url 'create_profile'%}" method="post" enctype="multipart/form-data">
+              
               {% csrf_token %}
+              {{form.as_p}}
               <h2 class="intro text-center">Create your Instagram-app profile</h2>
-              {% bootstrap_form form%}
-              <button class="form-btn btn-primary" type="submit">Create Profile</button>
+              
+              <button class="form-btn btn-primary" type="submit">Create Post</button>
             </form>
           </div>
         </div>
@@ -42,11 +44,9 @@
     </div>
   </div>
   <footer>
-    <div class="container-fluid text-center" style="color: #af01db; margin-bottom: 0% !important;">
+    <!-- <div class="container-fluid text-center" style="color: #af01db; margin-bottom: 0% !important;">
       <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-          <ul class="list-unstyled">
+        < <ul class="list-unstyled">
             <li>
               About
             </li>
@@ -81,8 +81,10 @@
     </div>
     <div class="footer-copyright text-center py-3 ma" style="color: #020e43; margin-bottom: 0% !important; ">© 2022
       Copyright: Instagram-app from Facebook<br>
-    </div>
-  </footer>
+    </div>div class="col-md-2"></div>
+        <div class="col-md-8">
+         
+  </footer> -->
   {% block scripts %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   {% bootstrap_javascript %}

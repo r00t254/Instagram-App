@@ -2,8 +2,18 @@
 body {
   background: #92a35d;
 }
+
+body{
+  background-image:url('/static/images/background.jpeg'); 
+  background-repeat: no-repeat;
+  background-size: 500px;
+  background-position: center;
+  background-position-y: top;
+  background-position-x: center;
+
+}
 .navigation {
-  background-color: #aae765;
+  background-color: #822065;
   height: 80px;
   position: fixed;
   width: 100%;
@@ -18,7 +28,7 @@ body {
   z-index: 2;
   transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out; 
   box-shadow: 0 0 1.8rem rgba(0, 0, 0, .15);
 }
 

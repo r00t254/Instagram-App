@@ -32,11 +32,11 @@ def index(request):
   #     index_timeline.append(images.id)
   # timeline_images=Image.objects.filter(pk__in=index_timeline).order_by('-pub_date')
 
-  # all_profiles=Profile.objects.all()
-  # comments=Comments.objects.all()[:5]
-  # count=comments.count()
-  # follow_suggestions=Profile.objects.all()[:6]
-  # title = "Instagram-App"
+  all_profiles=Profile.objects.all()
+  comments=Comments.objects.all()[:5]
+  count=comments.count()
+  follow_suggestions=Profile.objects.all()[:6]
+  title = "Instagram-App"
 
   return render(request, 'instagram/index.html')
   # return render(request,'instagram/index.html',{"all_profiles":all_profiles,"title":title,"profile":profile,"timeline_images":timeline_images,"follow_suggestions":follow_suggestions,"image_comments":comments})
@@ -198,7 +198,7 @@ def profile(request,profile_id):
 
   if is_following:
     return render(request,'profile/profile.html',{"profile":profile,"post":post,"images":images,"unfollow_form":unfollow_form})
-  return render(request,'profile/profile.html',{"profile":profile,"images":images,"post":post,"follow_form":follow_form,})
+  return render(request,'profile.html',{"profile":profile,"images":images,"post":post,"follow_form":follow_form,})
 
 
 @login_required
@@ -270,7 +270,7 @@ def upload_post(request):
       new_post=form.save(commit=False)
       new_post.profile = profile
       new_post.save()
-    return redirect(reverse('home'))
+    return redirect(reverse('profile'))
   else:
     form = CreatePost()
   return render(request,'create_post.html',{"form":form})
@@ -285,6 +285,22 @@ def single_post(request,image_id):
   
   
 def login(request):
-    if request.method == 'POST':
-      print(request.POST)
-    return render(request, 'instagram/login.html')
+    """
+      if request.method == 'POST':
+      print(request.POST) 
+      """
+    if form_is_valid:
+
+   
+      
+      return redirect('profile')
+    return render(request, 'registration/login.html')
+  
+   
+def registration(request):
+    """
+      if request.method == 'POST':
+      print(request.POST) 
+      """
+      
+    return render(request, 'django_registration/registration_form.html')

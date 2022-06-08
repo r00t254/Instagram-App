@@ -1,0 +1,46 @@
+{%extends "registration/base.html"%} {% load bootstrap4 %} {% block content %}
+  <div class="row" id="bg">
+    <!-- Empty div -->
+    <div class="col-md-4">
+      <!-- <img src="/static/images/bg.jpg" id="bg"> -->
+    </div>
+    <div class="col-md-4"> {% if form.errors %} <p> Password or Username is incorrect </p> {% endif %} <div
+        class="panel panel-default">
+        <div class="panel-heading">
+          <div class="container">
+            <form action="action_page.php" method="post">
+              <div class="imgcontainer">
+                <img src="/static/images/user_avatar_profile.webp" alt="Avatar" class="avatar">
+              </div>
+              <h3 class="text-center">Sign In</h3>
+
+              <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required><br>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+              <div class="container" style="background-color:#f1f1f1">
+                <span class="psw">Forgot <a href="#">password?</a></span>
+              </div>
+            </form>
+        </div>
+        <div class="panel-body">
+          <form action="/accounts/login/" method="post" class="form-data">
+             {% csrf_token %}
+             
+             <div
+              class="form-group">
+              <input type="submit" class="btn btn-primary btn-sm" value="Login">
+            </div>
+            <input type="hidden" name="next" value="{% url 'home' %}">
+          </form>
+          <div class="sign-up"> Don't have an account? <a href="/accounts/register/" class="ml-2">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- empty div -->
+    <div class="col-md-4"></div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{%extends "registration/base.html"%} {% load bootstrap4 %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="card shadow p-3 mb-5 rounded card" id="reg" style="width: fit-content; margin-left: auto;margin-right: auto;background-color: transparent;">
+        <div class="cardbody">
+          {% if form.errors %}
+          <p class="danger"> Checkout for possible accounts detail here </p>
+          {% endif %}
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="text-center">Sign Up</h3>
+            </div>
+
+<form action="action_page.php" style="border:1px solid #ccc">
+  <div class="container">
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+    <label>
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+    </label>
+
+    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+    <div class="clearfix">
+      <button type="submit" class="signupbtn">Sign Up</button>
+    </div>
+  </div>
+</form>
+            <div class="panel-body">
+              <form action="/accounts/register/" method="post">
+               
+                {% csrf_token %}
+              
+                <div class="form-group">
+                  <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
+                </div>
+                <input type="hidden" name="next" value="{%url 'create_profile' %}">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
+<footer>
+  <div class="container-fluid text-center" style="color: #052180; margin-bottom: 0% !important;">
+  
+  </div>
+</footer>
+{% endblock %}
