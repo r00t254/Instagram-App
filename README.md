@@ -5,7 +5,8 @@ This is a clone instagram website that enable users to upload their their pictur
 # Screen Short
 
 # Installations
-
+Django
+Python 3.8
 
 # User Story
 User can sign into the application
