@@ -21,5 +21,6 @@ User can sign into the application
 .User can like and leave a comment on it
 
 # Known Bugs
-
+There are no known bugs
+# Technology Used
 
